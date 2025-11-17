@@ -1,0 +1,41 @@
+name: XML Validation Check
+
+# 1. When should this workflow run?
+on:
+  # Run on every push to the 'main' branch
+  push:
+    branches: [ main ]
+    paths:
+      # Only run if files in or under /src/Data/ are changed
+      - 'src/Data/**/*.xml'
+  # Also run on pull requests targeting the 'main' branch
+  pull_request:
+    branches: [ main ]
+    paths:
+      - 'src/Data/**/*.xml'
+  # Allows you to manually trigger the workflow from the 'Actions' tab
+  workflow_dispatch:
+
+# 2. Define the jobs that make up the workflow
+jobs:
+  validate-xml:
+    # Use a standard Ubuntu environment to run the job
+    runs-on: ubuntu-latest
+    
+    # Define the steps for this job
+    steps:
+      # Step 1: Check out the repository code
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      # Step 2: Run the XML validation
+      - name: Validate XML Files
+        # Use a pre-built GitHub action for xmllint
+        uses: jirutka/gh-action-xmllint@v1
+        with:
+          # Define the files to be validated (recursive search for .xml in src/Data)
+          files: 'src/Data/**/*.xml'
+          # Set validation to strict (checks for well-formedness AND validity against a DTD/Schema if present)
+          validate: true
+          # Continue the check even if some files fail, reporting all errors
+          fail-fast: false
