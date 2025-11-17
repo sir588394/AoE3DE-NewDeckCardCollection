@@ -1,0 +1,9 @@
+# .github/ISSUE_TEMPLATE/config.yml
+
+# Disable the option for users to open a blank issue
+blank_issues_enabled: false
+# Provide links to other places to report issues or get help
+contact_links:
+  - name: Official Documentation/Wiki
+    url: 
+    about: Please check the documentation before reporting a bug.

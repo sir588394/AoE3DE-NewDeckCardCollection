@@ -1,0 +1,46 @@
+name: Technical / Data Error
+description: Report an issue found directly in the mod's source files (XML, data, script).
+title: "[XML-ERR] <File Name>: <Error type>"
+labels: technical, data-error
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This template is for reports of syntax, parsing, or critical data-file errors only.
+
+  - type: input
+    id: file_path
+    attributes:
+      label: Affected File Path
+      description: The exact path to the file containing the error (relative to the mod folder).
+      placeholder: e.g. data/proto/homecity/dutch.xml
+    validations:
+      required: true
+
+  - type: input
+    id: line_number
+    attributes:
+      label: Approximate Line Number
+      description: The line number where the error appears (if known).
+      placeholder: e.g. 301
+
+  - type: dropdown
+    id: error_type
+    attributes:
+      label: Type of Error
+      options:
+        - Syntax Error (e.g., missing `<tag>`)
+        - Logic Error (e.g., `<Attack>` value is too high)
+        - Missing Asset/Reference Error (File called doesn't exist)
+        - Other (Please explain in snippet section)
+    validations:
+      required: true
+
+  - type: textarea
+    id: code_snippet
+    attributes:
+      label: Relevant Code Snippet
+      description: Paste the XML or code lines around the error for context.
+      render: xml # or other language if appropriate
+    validations:
+      required: true

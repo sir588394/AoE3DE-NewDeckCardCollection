@@ -1,0 +1,49 @@
+name: Balance Change Request
+description: Propose a change to unit, tech, cost, or statistic for balance purposes.
+title: "[BALANCE] <Unit/Tech Name>: <Proposed change>"
+labels: balance, discussion
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Balance changes greatly influence the experience.
+
+  - type: input
+    id: affected_item
+    attributes:
+      label: Affected Unit, Technology, or Card
+      description: The name of the item you want to change.
+      placeholder: e.g. Rattan Archer, Land Reclamation, Ironclad Warship
+    validations:
+      required: true
+
+  - type: textarea
+    id: current_values
+    attributes:
+      label: Current Values
+      description: List the current, relevant stats for the item.
+      placeholder: |
+        - Cost: 100F/75C
+        - Attack: 15 (vs Infantry: x2.5)
+        - HP: 150
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposed_changes
+    attributes:
+      label: Proposed Changes
+      description: List the new values and clearly indicate the change (e.g., "+5 HP," "-10% Attack").
+      placeholder: |
+        - New Attack: 14 (Change: -1)
+        - Reason: To reduce its effectiveness in the Fortress Age without reducing its late-game power.
+    validations:
+      required: true
+
+  - type: textarea
+    id: justification
+    attributes:
+      label: Detailed Justification / Scenario
+      description: Explain the exact competitive or situational problem this change fixes. Which matchups or strategies are affected?
+    validations:
+      required: true

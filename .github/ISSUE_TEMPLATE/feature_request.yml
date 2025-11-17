@@ -1,0 +1,48 @@
+name: Feature Request
+description: Suggest a new feature, unit, mechanic, or quality-of-life improvement.
+title: "[FEATURE] <Proposed functionality>"
+labels: feature, enhancement
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Got a great idea? Tell us about it! Please ensure your request aligns with the mod's overall vision.
+
+  - type: textarea
+    id: problem_statement
+    attributes:
+      label: Problem Statement / Why this feature is needed
+      description: What challenge or gap in gameplay does this feature address? Why is the current situation insufficient?
+      placeholder: e.g. There is no counter to massed Heavy Cavalry in the late game, leading to imbalanced matches.
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposed_solution
+    attributes:
+      label: Proposed Solution / Feature Details
+      description: Describe your proposed feature in detail. How would it work? What does the user see?
+      placeholder: |
+        A new Home City card called 'Militia Reserves' that sends 5-10 cheap, light infantry units, available in the Fortress Age.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Estimated Impact/Priority
+      description: How critical is this feature to the mod's success or quality of life?
+      options:
+        - Low (Cosmetic/Minor QoL)
+        - Medium (Helpful for core experience)
+        - High (Fundamental to gameplay balance/functionality)
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives Considered
+      description: Have you thought of other ways to solve the problem? Why is your solution better?
+    validations:
+      required: false
